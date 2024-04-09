@@ -1,6 +1,5 @@
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
-        count = 0
         while students:
             pop = 0
             for i in range(len(students)):
