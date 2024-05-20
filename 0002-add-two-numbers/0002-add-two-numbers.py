@@ -18,11 +18,11 @@ class Solution:
             if p2:
                 b= str(p2.val)+b            
                 p2 = p2.next
-        a = int(a)+int(b)
+        ans = int(a)+int(b)
         while sample:
-                sample.val = a%10
-                a = a//10
-                if(a!=0 and sample.next==None):
+                sample.val = ans%10
+                ans = ans//10
+                if(ans!=0 and sample.next==None):
                     sample.next = ListNode(0)
                 sample = sample.next
                 
