@@ -7,3 +7,4 @@ class Solution:
                 return [ans[temp],i]
             ans[nums[i]]=i
         return []
+ 
