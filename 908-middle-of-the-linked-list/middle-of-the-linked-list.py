@@ -8,14 +8,7 @@ class Solution:
         fast = head
         slow = head
         count = 0
-        while fast:
-            fast = fast.next
-            count += 1
-        if count%2==0:
-            count = count/2
-        else:
-            count = count//2 
-        while count:
+        while fast and fast.next:
+            fast = fast.next.next
             slow = slow.next
-            count -=1
         return slow
