@@ -9,9 +9,9 @@ class Solution:
             sample = 0
             for i in nums:
                 sample += ceil(i/mid)
-            if sample<=threshold:
-                high = mid-1
+            if sample <= threshold:
                 ans = mid
+                high = mid-1
             else:
                 low = mid+1
-        return ans 
+        return ans
