@@ -16,9 +16,9 @@ class Solution:
         while right<=high:
             sample.append(nums[right])
             right+=1
-        # nums[low:high+1] = sample
-        for i in range(len(sample)):
-            nums[low+i] = sample[i]
+        nums[low:high+1] = sample
+        # for i in range(len(sample)):
+        #     nums[low+i] = sample[i]
 
 
  
