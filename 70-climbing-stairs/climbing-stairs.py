@@ -4,7 +4,8 @@ class Solution:
         cur = 1
         ans = 0
         for i in range(n):
-                temp = cur
-                cur = prev + cur
-                prev = temp
-        return cur 
+            ans = prev + cur
+            prev = cur
+            cur = ans 
+        return ans
+            
