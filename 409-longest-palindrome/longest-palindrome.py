@@ -9,6 +9,5 @@ class Solution:
             else:
                 a.append(i)
         if a:
-            return count+1
-        else:
-            return count
+            count+=1
+        return count
