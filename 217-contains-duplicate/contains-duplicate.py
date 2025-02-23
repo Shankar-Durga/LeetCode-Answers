@@ -4,6 +4,5 @@ class Solution:
         for i in range(len(nums)):
             if nums[i] in data:
                 return True
-            else:
-                data[nums[i]] = 1 
+            data[nums[i]] = 1 
         return False
