@@ -3,7 +3,6 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-       
         first_row = False
         first_col = False
         for i in range(len(matrix)):
@@ -11,51 +10,27 @@ class Solution:
                 first_row = True
         for j in range(len(matrix[0])):
             if matrix[0][j] == 0:
-                first_col = True
-        # rows = [-1] * len(matrix)
-        # col = [-1] * len(matrix[0])
+                first_col = True        
         for i in range(1,len(matrix)):
             for j in range(1,len(matrix[0])):
                 if matrix[i][j] == 0:
                     matrix[0][j] = 0
                     matrix[i][0] = 0
-
-        # for i in range(len(rows)):
-        #    if rows[i] == 0:
-        #     for value in range(len(col)):
-        #         matrix[i][value] = 0
-
-       
-        # for i in range(len(col)):
-        #    if col[i] == 0:
-        #     for value in range(len(rows)):
-        #         matrix[value][i] = 0
+        
         for i in range(1,len(matrix)):
-            if matrix[i][0] == 0:
+            if matrix[i][0] == 0 :
                 for j in range(1,len(matrix[0])):
                     matrix[i][j] = 0
-                    
-        
         for j in range(1,len(matrix[0])):
             if matrix[0][j] == 0:
-                for i in range(1,len(matrix)):
+                for i in range(len(matrix)):
                     matrix[i][j] = 0
-        if first_row == True:
+        
+        if first_row:
             for i in range(len(matrix)):
-                if first_row == True:
                     matrix[i][0] = 0
-        if first_col == True:
+
+        if first_col:
             for j in range(len(matrix[0])):
-                    matrix[0][j] = 0
-        
-        # for i in range(len(matrix)):
-        #     if matrix[i][0] == 0:
-        #         for j in range(len(matrix[0])):
-        #             matrix[i][j] = 0
-                    
-        
-        # for j in range(len(matrix[0])):
-        #     if matrix[0][j] == 0:
-        #         for i in range(len(matrix)):
-        #             matrix[i][j] = 0
+                matrix[0][j] = 0
         return matrix
