@@ -4,19 +4,19 @@ class Solution:
         left = 0
         right = 0
         count = 0
-        temp = 0
         while right<len(s):
 
             while s[right] in ans:
                     ans.remove(s[left])
                     left += 1
-                    if temp > count:
-                        count = temp
-                    temp = right-left
+                    # if temp > count:
+                    #     count = temp
+                    # temp = right-left
 
             ans.add(s[right])
-            temp += 1
+            if len(ans)>count:
+                count = len(ans)
             right += 1
-        if temp > count:
-            count = temp
+        if len(ans) > count:
+            count = len(ans)
         return count
