@@ -5,14 +5,15 @@ class Solution:
         count = 0
         temp = 0
         nums.sort()
-        print(nums)
         for i in range(1,len(nums)):
             if nums[i] == nums[i-1]:
                 continue
             if nums[i]-1 == nums[i-1]:
                 temp += 1
             else:
+                if temp > count:
+                    count = temp
                 temp = 0
-            count = max(temp, count)
-        
+        if temp > count:
+                    count = temp
         return count+1
