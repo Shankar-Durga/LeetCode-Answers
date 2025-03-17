@@ -17,6 +17,6 @@ class Solution:
             if len(ans)>count:
                 count = len(ans)
             right += 1
-        if len(ans) > count:
-            count = len(ans)
+        # if len(ans) > count:
+        #     count = len(ans)
         return count
