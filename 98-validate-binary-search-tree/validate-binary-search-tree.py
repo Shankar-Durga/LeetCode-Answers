@@ -6,10 +6,12 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def validator(node, min_value, max_value):
+        def validator(low, high, node):
             if node is None:
                 return True
-            if (min_value is not None and node.val<=min_value) or ( max_value is not None and node.val>=max_value ):
-                return False
-            return (validator(node.left, min_value,node.val) and validator(node.right,node.val,max_value) )
-        return validator(root, None,None) 
+            if (low is not None and node.val <= low) or (high is not None and node.val>=high):
+                    return False
+            return validator(low, node.val, node.left) and validator(node.val, high, node.right)
+
+
+        return validator(None,None,root)
