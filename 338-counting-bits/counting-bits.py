@@ -5,7 +5,10 @@ class Solution:
             count = 0
             value = i
             while value:
-                if value&1:
+                if len(ans)<value:
+                    count += ans[value+1]
+                    break
+                elif value&1:
                     count += 1
                 value>>=1
             ans.append(count)
