@@ -11,7 +11,8 @@ class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if node is None:
             return
-
+        if node.val is None:
+            return Node(node.val, [])
         adj = {}
         # running BFS
         q = []  #queue for bFS
