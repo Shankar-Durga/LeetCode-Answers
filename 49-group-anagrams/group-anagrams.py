@@ -1,4 +1,5 @@
 from collections import defaultdict
+from typing import List  # <-- You need to import this
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
@@ -9,4 +10,4 @@ class Solution:
                 checker[ord(j) - ord('a')] += 1
             key = tuple(checker)
             ans[key].append(i)
-        return list(ans.values())
+        return list(ans.values())  # Convert to list for return
