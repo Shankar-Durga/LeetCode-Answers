@@ -1,22 +1,17 @@
-# from collections import deafultdict
+from collections import defaultdict
+from typing import List
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        a = {}
-        buckets = [[] for _ in range(len(nums) + 1)]
+        a = defaultdict(int)
+        buckets = [[] for _ in range(len(nums)+1)]
         ans = []
-        count = 0
-        left = 0
-        right = 0
         
         for i in nums:
-            if i in a:
-                a[i] += 1
-            else:
-                a[i] = 1
+            a[i] += 1
             
         for key, value in a.items():
             buckets[value].append(key)
-         
+
         for i in range(len(nums),-1,-1):
             if len(ans) == k:
                 break
