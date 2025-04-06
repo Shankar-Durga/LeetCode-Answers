@@ -1,12 +1,26 @@
+# from collections import deafultdict
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # Count frequencies of each number
-        freq = {}
-        for num in nums:
-            freq[num] = freq.get(num, 0) + 1
-
-        # Sort the keys based on frequency in descending order
-        sorted_keys = sorted(freq, key=freq.get, reverse=True)
+        a = {}
+        buckets = [[] for _ in range(len(nums) + 1)]
+        ans = []
+        count = 0
+        left = 0
+        right = 0
         
-        # Return the first k elements
-        return sorted_keys[:k]
+        for i in nums:
+            if i in a:
+                a[i] += 1
+            else:
+                a[i] = 1
+            
+        for key, value in a.items():
+            buckets[value].append(key)
+         
+        for i in range(len(nums),-1,-1):
+            if len(ans) == k:
+                break
+            if buckets[i]:
+                ans.extend(buckets[i])
+        return ans
+        
