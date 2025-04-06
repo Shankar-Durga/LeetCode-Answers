@@ -8,4 +8,11 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if root is None:
             return 0
-        return 1+max(self.maxDepth(root.left),self.maxDepth(root.right))
+        def depth(sample,count):
+            if sample is None:
+                return count
+            return max(depth(sample.left,count+1),depth(sample.right,count+1))
+            
+
+        return max(depth(root.left,1),depth(root.right,1))
+        
