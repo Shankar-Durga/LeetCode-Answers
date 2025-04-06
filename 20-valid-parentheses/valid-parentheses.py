@@ -1,30 +1,12 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        
-        validator = "([{"
+        validator = {'(':')', '{':'}', '[':']'}
         stack = []
         for i in s:
-            if i =='(' or i=='[' or i== '{':
+            if i in "{([":
                 stack.append(i)
-            elif not stack:
+            elif not stack or validator[stack.pop()] != i:
                 return False
-            elif i == ")":
-                if stack[-1]!="(":
-                    return False
-                else:
-                    stack.pop(-1)
-            elif i == "]":
-                if stack[-1]!="[":
-                    return False
-                else:
-                    stack.pop(-1)
-                
-            elif i == "}":
-                if stack[-1]!="{":
-                    return False
-                else:
-                    stack.pop(-1)
         if stack:
             return False
         return True
-                
